@@ -27,9 +27,10 @@ const jsFiles = [
 ];
 
 function css() {
-    return gulp.src('./src/scss/style.scss')
+    return gulp.src(cssFiles)
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
+        .pipe(concat('style.css'))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('./src/css/'))
         .pipe(browserSync.stream())
